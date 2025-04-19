@@ -354,7 +354,6 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
-  - component: {fileID: 963194226}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -362,14 +361,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &963194226
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -554,7 +545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a6769352c02b6498931650d5f10f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioProcessor: {fileID: 1716724179}
+  audioProcessor: {fileID: 1716724181}
   targetRenderer: {fileID: 1390709756}
   shaderPropertyName: _BassLevel
   frequencyBinName: Bass
@@ -568,7 +559,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1716724180}
-  - component: {fileID: 1716724179}
+  - component: {fileID: 1716724181}
+  - component: {fileID: 1716724182}
   m_Layer: 0
   m_Name: AudioProcessor
   m_TagString: Untagged
@@ -576,47 +568,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1716724179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716724178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 676d1142e4750c147944e7adece09ed3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spectrumSize: 512
-  scaleFactor: 100
-  refreshRate: 60
-  debugMode: 0
-  frequencyBins:
-  - debugMode: 1
-    name: All
-    minRange: 0
-    maxRange: 20000
-    minAmplitude: 0
-    maxAmplitude: 4.1
-    smoothingFactor: 0
-    cooldownTime: 0
-  - debugMode: 1
-    name: Bass
-    minRange: 0
-    maxRange: 150
-    minAmplitude: 0
-    maxAmplitude: 3.01
-    smoothingFactor: 0.952
-    cooldownTime: 0
-  - debugMode: 1
-    name: Snare
-    minRange: 6000
-    maxRange: 8000
-    minAmplitude: 0
-    maxAmplitude: 3.01
-    smoothingFactor: 0.952
-    cooldownTime: 0
 --- !u!4 &1716724180
 Transform:
   m_ObjectHideFlags: 0
@@ -632,6 +583,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1716724181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716724178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676d1142e4750c147944e7adece09ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spectrumSize: 512
+  scaleFactor: 10
+  refreshRate: 60
+  debugMode: 0
+  frequencyBins:
+  - debugMode: 0
+    name: Bass
+    minRange: 20
+    maxRange: 150
+    minAmplitude: 0.1
+    maxAmplitude: 0.9
+    smoothingFactor: 0.775
+    cooldownTime: 0.2
+  - debugMode: 0
+    name: Low
+    minRange: 150
+    maxRange: 500
+    minAmplitude: 0.1
+    maxAmplitude: 0.3
+    smoothingFactor: 0.1
+    cooldownTime: 0.2
+  - debugMode: 0
+    name: Mid
+    minRange: 500
+    maxRange: 2000
+    minAmplitude: 0.1
+    maxAmplitude: 0.3
+    smoothingFactor: 0.1
+    cooldownTime: 0.2
+  - debugMode: 0
+    name: High
+    minRange: 2000
+    maxRange: 6000
+    minAmplitude: 0.1
+    maxAmplitude: 0.3
+    smoothingFactor: 0.1
+    cooldownTime: 0.2
+  - debugMode: 0
+    name: Air
+    minRange: 6000
+    maxRange: 20000
+    minAmplitude: 0.1
+    maxAmplitude: 0.3
+    smoothingFactor: 0.1
+    cooldownTime: 0.2
+--- !u!81 &1716724182
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716724178}
+  m_Enabled: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

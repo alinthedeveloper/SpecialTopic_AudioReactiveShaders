@@ -7,7 +7,6 @@ public class AudioShaderLink : MonoBehaviour
     [SerializeField] private Renderer targetRenderer;
     [SerializeField] private string shaderPropertyName = "_BassAmplitude";
     [SerializeField] private string frequencyBinName = "Bass";
-
     [SerializeField] private bool usePulse = false;
 
     private Material _material;

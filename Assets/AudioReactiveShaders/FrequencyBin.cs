@@ -3,6 +3,8 @@ using UnityEngine;
 namespace AudioTools
 {
     [System.Serializable]
+    // This class represents a frequency bin for audio processing.
+    // It is essentially a range of frequencies and the amplitude of those frequencies.
     public class FrequencyBin
     {
         // Serialized fields for Unity Inspector
@@ -40,6 +42,9 @@ namespace AudioTools
             this.maxAmplitude = maxAmplitude;
         }
 
+        // This method detects peaks in the audio signal based on the current normalized amplitude.
+        // This is used to determine if a "pulse" is active.
+        // Currently the audio processor doesn't use this method in a meaningful way but it is here for future use.
         public void DetectPeaks(float currentNormalizedAmplitude, float deltaTime)
         {
             _pulseCooldown -= deltaTime;
@@ -64,6 +69,7 @@ namespace AudioTools
             _previousAmplitude = currentNormalizedAmplitude;
         }
 
+        // This method normalizes the amplitude of the audio signal based on the current amplitude in comparison to the min and max amplitude.
         public void UpdateAmplitude(float currentAmplitude)
         {
             NormalizedAmplitude = Mathf.Clamp01((currentAmplitude - MinAmplitude) / (MaxAmplitude - MinAmplitude));
