@@ -770,6 +770,97 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: a4bc1b13898edcc4e89a0c0702a53041, type: 3}
   m_PrefabInstance: {fileID: 1989802833}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1497641468
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 660454cafbeb4ea4d976c2ed91c2e373, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.9956216
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 660454cafbeb4ea4d976c2ed91c2e373, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.684
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 660454cafbeb4ea4d976c2ed91c2e373, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.14517832
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 660454cafbeb4ea4d976c2ed91c2e373, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 660454cafbeb4ea4d976c2ed91c2e373, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 660454cafbeb4ea4d976c2ed91c2e373, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 660454cafbeb4ea4d976c2ed91c2e373, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 660454cafbeb4ea4d976c2ed91c2e373, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 660454cafbeb4ea4d976c2ed91c2e373, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 660454cafbeb4ea4d976c2ed91c2e373, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 660454cafbeb4ea4d976c2ed91c2e373, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 818609ea5cbe7da48aa8b615e02cf50c, type: 3}
+    - target: {fileID: 919132149155446097, guid: 660454cafbeb4ea4d976c2ed91c2e373, type: 3}
+      propertyPath: m_Name
+      value: Drum Barrel
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 660454cafbeb4ea4d976c2ed91c2e373, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1501218096}
+  m_SourcePrefab: {fileID: 100100000, guid: 660454cafbeb4ea4d976c2ed91c2e373, type: 3}
+--- !u!1 &1501218095 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 660454cafbeb4ea4d976c2ed91c2e373, type: 3}
+  m_PrefabInstance: {fileID: 1497641468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1501218096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501218095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a6769352c02b6498931650d5f10f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioProcessor: {fileID: 1716724181}
+  targetRenderer: {fileID: 1501218097}
+  shaderPropertyName: _SnareLevel
+  frequencyBinName: Snare
+  usePulse: 0
+--- !u!23 &1501218097 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 660454cafbeb4ea4d976c2ed91c2e373, type: 3}
+  m_PrefabInstance: {fileID: 1497641468}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1716724178
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,12 +936,12 @@ MonoBehaviour:
     smoothingFactor: 0.1
     cooldownTime: 0.2
   - debugMode: 0
-    name: High
+    name: Snare
     minRange: 2000
     maxRange: 6000
     minAmplitude: 0.1
     maxAmplitude: 0.3
-    smoothingFactor: 0.1
+    smoothingFactor: 0.703
     cooldownTime: 0.2
   - debugMode: 0
     name: Air
@@ -1050,3 +1141,4 @@ SceneRoots:
   - {fileID: 1141161149}
   - {fileID: 286132159}
   - {fileID: 1989802833}
+  - {fileID: 1497641468}
