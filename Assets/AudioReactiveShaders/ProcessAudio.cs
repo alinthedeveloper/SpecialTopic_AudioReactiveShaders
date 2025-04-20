@@ -44,12 +44,14 @@ public class ProcessAudio : MonoBehaviour
         spectrumData = new float[(int)spectrumSize]; 
 
         //default bins.
-        frequencyBins.Add(new FrequencyBin("Bass", 20, 100, 0.1f, 0.3f));
-        frequencyBins.Add(new FrequencyBin("Low", 100, 500, 0.1f, 0.3f));
-        frequencyBins.Add(new FrequencyBin("Mid", 500, 2000, 0.1f, 0.3f));
-        frequencyBins.Add(new FrequencyBin("High", 2000, 6000, 0.1f, 0.3f));
-        frequencyBins.Add(new FrequencyBin("Air", 6000, 20000, 0.1f, 0.3f));
-        
+        if (frequencyBins.Count == 0)
+        {
+            frequencyBins.Add(new FrequencyBin("Bass", 20, 100, 0.1f, 0.3f));
+            frequencyBins.Add(new FrequencyBin("Low", 100, 500, 0.1f, 0.3f));
+            frequencyBins.Add(new FrequencyBin("Mid", 500, 2000, 0.1f, 0.3f));
+            frequencyBins.Add(new FrequencyBin("High", 2000, 6000, 0.1f, 0.3f));
+            frequencyBins.Add(new FrequencyBin("Air", 6000, 20000, 0.1f, 0.3f));
+        }
         // stores the corutine's status in a variable so we have a break case if we need it.
         processingCoroutine = StartCoroutine(UpdateFrequencyBins());
     }
