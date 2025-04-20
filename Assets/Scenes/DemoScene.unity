@@ -750,6 +750,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5836997275539252516, guid: 97621289f7540c3419dd5b1dbf4bf49a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: bf7291e4a8355e047a6a319ec9f88cb6, type: 3}
     - target: {fileID: 919132149155446097, guid: 97621289f7540c3419dd5b1dbf4bf49a, type: 3}
       propertyPath: m_Name
       value: Piano White
@@ -1102,8 +1106,8 @@ MonoBehaviour:
     minRange: 150
     maxRange: 500
     minAmplitude: 0.1
-    maxAmplitude: 0.3
-    smoothingFactor: 0.1
+    maxAmplitude: 0.81
+    smoothingFactor: 0.349
     cooldownTime: 0.2
   - debugMode: 1
     name: Mid
@@ -1120,86 +1124,6 @@ MonoBehaviour:
     minAmplitude: 0.1
     maxAmplitude: 0.3
     smoothingFactor: 0.703
-    cooldownTime: 0.2
-  - debugMode: 0
-    name: Air
-    minRange: 6000
-    maxRange: 20000
-    minAmplitude: 0.1
-    maxAmplitude: 0.3
-    smoothingFactor: 0.1
-    cooldownTime: 0.2
-  - debugMode: 0
-    name: Bass
-    minRange: 20
-    maxRange: 100
-    minAmplitude: 0.1
-    maxAmplitude: 0.3
-    smoothingFactor: 0.1
-    cooldownTime: 0.2
-  - debugMode: 0
-    name: Low
-    minRange: 100
-    maxRange: 500
-    minAmplitude: 0.1
-    maxAmplitude: 0.3
-    smoothingFactor: 0.1
-    cooldownTime: 0.2
-  - debugMode: 0
-    name: Mid
-    minRange: 500
-    maxRange: 2000
-    minAmplitude: 0.1
-    maxAmplitude: 0.3
-    smoothingFactor: 0.1
-    cooldownTime: 0.2
-  - debugMode: 0
-    name: High
-    minRange: 2000
-    maxRange: 6000
-    minAmplitude: 0.1
-    maxAmplitude: 0.3
-    smoothingFactor: 0.1
-    cooldownTime: 0.2
-  - debugMode: 0
-    name: Air
-    minRange: 6000
-    maxRange: 20000
-    minAmplitude: 0.1
-    maxAmplitude: 0.3
-    smoothingFactor: 0.1
-    cooldownTime: 0.2
-  - debugMode: 0
-    name: Bass
-    minRange: 20
-    maxRange: 100
-    minAmplitude: 0.1
-    maxAmplitude: 0.3
-    smoothingFactor: 0.1
-    cooldownTime: 0.2
-  - debugMode: 0
-    name: Low
-    minRange: 100
-    maxRange: 500
-    minAmplitude: 0.1
-    maxAmplitude: 0.3
-    smoothingFactor: 0.1
-    cooldownTime: 0.2
-  - debugMode: 0
-    name: Mid
-    minRange: 500
-    maxRange: 2000
-    minAmplitude: 0.1
-    maxAmplitude: 0.3
-    smoothingFactor: 0.1
-    cooldownTime: 0.2
-  - debugMode: 0
-    name: High
-    minRange: 2000
-    maxRange: 6000
-    minAmplitude: 0.1
-    maxAmplitude: 0.3
-    smoothingFactor: 0.1
     cooldownTime: 0.2
   - debugMode: 0
     name: Air
