@@ -17,13 +17,15 @@ public class AudioShaderLinkAll : MonoBehaviour
     [SerializeField] private string highfrequencyBinName = "High";
     [SerializeField] private string airShaderPropertyName = "_AirLevel";
     [SerializeField] private string airfrequencyBinName = "Air";
+    [SerializeField] private string allShaderPropertyName = "_AllLevel";
+    [SerializeField] private string allfrequencyBinName = "All";
 
     [SerializeField] private bool usePulse = false;
 
     private Material _material;
 
     // Track bins
-    private FrequencyBin bassBin, lowBin, midBin, highBin, airBin;
+    private FrequencyBin bassBin, lowBin, midBin, highBin, airBin, allBin;
 
     void Start()
     {
@@ -44,6 +46,7 @@ public class AudioShaderLinkAll : MonoBehaviour
                 case string name when name == midfrequencyBinName:  midBin  = bin; break;
                 case string name when name == highfrequencyBinName: highBin = bin; break;
                 case string name when name == airfrequencyBinName:  airBin  = bin; break;
+                case string name when name == allfrequencyBinName:  allBin = bin; break;
             }
         }
     }
@@ -62,5 +65,7 @@ public class AudioShaderLinkAll : MonoBehaviour
             _material.SetFloat(highShaderPropertyName, usePulse ? (highBin.PulseActive ? 1f : 0f) : highBin.NormalizedAmplitude);
         if (airBin != null)
             _material.SetFloat(airShaderPropertyName, usePulse ? (airBin.PulseActive ? 1f : 0f) : airBin.NormalizedAmplitude);
+        if (allBin != null)
+            _material.SetFloat(allShaderPropertyName, usePulse ? (allBin.PulseActive ? 1f : 0f) : allBin.NormalizedAmplitude);
     }
 }

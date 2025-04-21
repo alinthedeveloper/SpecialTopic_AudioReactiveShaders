@@ -33,11 +33,19 @@ public class ProcessAudio : MonoBehaviour
     [SerializeField] private SpectrumSize spectrumSize = SpectrumSize.x512; // Default to 512
     [SerializeField] private ScaleFactor scaleFactor = ScaleFactor.x10;     // Default to 10
     [Range(60, 240)] public int refreshRate = 60;
-    public bool debugMode = false;
     [SerializeField] private List<FrequencyBin> frequencyBins = new List<FrequencyBin>();
 
     private float[] spectrumData;
     private Coroutine processingCoroutine;
+
+    //Smooth All Amplitude variables (uses the delta of current and previous amplitude to smooth amplitude over time)
+    private float previousAllAmplitude = 0f;
+    private float allAmplitudeSmoothed = 0f;
+    private float allAmplitude; // raw
+    public float AllLevel => allAmplitudeSmoothed;
+    public float AllAmplitudeSmoothingFactor = 0.1f;
+    public bool AllDebugMode = false;
+
 
     private void Start()
     {
@@ -92,6 +100,26 @@ public class ProcessAudio : MonoBehaviour
                     Debug.Log($"[{bin.Name}] Norm: {bin.NormalizedAmplitude:F3}, Pulse: {bin.PulseActive}");
                 }
             }
+
+            // use smoothing factor to calculate the change in all amplitude over time.
+            float total = 0f;
+            foreach (var bin in frequencyBins)
+            {
+                total += bin.NormalizedAmplitude;
+            }
+            allAmplitude = total / frequencyBins.Count;
+
+            float delta = Mathf.Abs(allAmplitude - previousAllAmplitude);
+            
+            allAmplitudeSmoothed = Mathf.Lerp(allAmplitudeSmoothed, allAmplitude, AllAmplitudeSmoothingFactor);
+            previousAllAmplitude = allAmplitude;
+
+            if (AllDebugMode)
+            {
+                Debug.Log($"[All] Raw: {allAmplitude:F3}, Smoothed: {allAmplitudeSmoothed:F3}");
+            }
+            
+
 
             yield return new WaitForSeconds(1f / refreshRate);
         }
